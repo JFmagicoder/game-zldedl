@@ -39,6 +39,6 @@ export default {
     url(./fonts/BarlowSemiCondensed-Medium.ttf) format("truetype");
 }
 .v-application {
-  font-family: "BarlowSemiCondensed", sans-serif !important;
+  font-family: "BarlowSemiCondensed" !important;
 }
 </style>

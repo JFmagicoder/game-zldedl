@@ -21,5 +21,5 @@ export const cyanEnd = "hsl(189, 58%, 57%)";
 // Neutral
 
 export const darkText = "hsl(229, 25%, 31%)";
-export const scoreText = "hsl(229, 25%, 31%)";
-export const headerOutline = "hsl(229, 25%, 31%)";
+export const scoreText = "hsl(229, 64%, 46%)";
+export const headerOutline = "hsl(217, 16%, 45%)";
