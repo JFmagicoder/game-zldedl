@@ -13,7 +13,7 @@
       <span
         class="score_value font-weight-bold"
         :style="{ borderColor: darkTextColor }"
-        >12</span
+        >{{ winCounts }}</span
       >
     </div>
   </div>
@@ -22,6 +22,7 @@
 <script>
 import { headerOutline, scoreText, darkText } from "../constants/colors";
 export default {
+  props: ["winCounts"],
   data() {
     return {
       logo: require("../../../images/logo-bonus.svg"),
