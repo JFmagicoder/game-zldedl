@@ -1,6 +1,6 @@
 <template>
   <div class="home-container">
-    <Header :winCounts="winCounts" />
+    <Header :points="points" />
     <div class="content" v-if="!userSelected">
       <img :src="pentagon" />
     </div>
@@ -138,7 +138,7 @@ export default {
       userSelectedName: "",
       botSelected: false,
       botSelectedName: "",
-      winCounts: 0,
+      points: 0,
     };
   },
 
@@ -246,7 +246,7 @@ export default {
       };
     },
     isWon() {
-      if (this.userSelectedName !== this.botSelectedName) {
+      if (!this.isDraw) {
         if (
           this.winningRules[this.userSelectedName].includes(
             this.botSelectedName
@@ -257,6 +257,15 @@ export default {
       }
       return false;
     },
+    isDraw() {
+      if (this.botSelected) {
+        return this.userSelectedName === this.botSelectedName;
+      }
+      return true;
+    },
+    isLose() {
+      return !this.isWon && !this.isDraw;
+    },
     resultTitle() {
       if (!this.botSelected) {
         return "";
@@ -264,7 +273,7 @@ export default {
       if (this.isWon) {
         return "YOU WIN";
       }
-      if (this.userSelectedName === this.botSelectedName) {
+      if (this.isDraw) {
         return "YOU DRAW";
       }
       return "YOU LOSE";
@@ -272,11 +281,15 @@ export default {
   },
   watch: {
     isWon(val) {
-      console.log(val);
       if (val) {
-        this.winCounts++;
+        this.points++;
       }
     },
+    isLose(val) {
+      if (val) {
+        this.points--;
+      }
+    }
   },
 };
 </script>
